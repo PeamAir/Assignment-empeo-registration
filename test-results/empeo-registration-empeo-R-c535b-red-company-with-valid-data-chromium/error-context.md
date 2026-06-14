@@ -68,7 +68,7 @@ waiting for navigation until "domcontentloaded"
               - generic [ref=e109]:
                 - generic [ref=e115]: 1-20
                 - generic [ref=e119] [cursor=pointer]: 
-            - textbox "อีเมล*" [ref=e128]: automation.1781436391974@gmail.com
+            - textbox "อีเมล*" [ref=e128]: automation.1781445150759@gmail.com
             - generic [ref=e129]:
               - textbox "ชื่อ*" [ref=e137]: Automation
               - textbox "นามสกุล*" [ref=e145]: Tester
@@ -122,138 +122,140 @@ waiting for navigation until "domcontentloaded"
             - listitem [ref=e201] [cursor=pointer]
             - listitem [ref=e202] [cursor=pointer]
             - listitem [ref=e203] [cursor=pointer]
-          - img "image-preview" [ref=e207]
-    - img "Crisp Chat" [ref=e209] [cursor=pointer]
-  - generic [ref=e212]:
-    - generic [ref=e213] [cursor=pointer]: 
-    - generic [ref=e216]:
-      - paragraph [ref=e217]: กรุณาตรวจสอบข้อความ
-      - generic [ref=e218]:
-        - paragraph [ref=e219]: โปรดกรอกรหัส OTP ที่ถูกส่งไปยัง 096-XXX-0708
-        - paragraph [ref=e220]: "ref: 1703"
-      - generic [ref=e223]:
-        - textbox [ref=e224]
-        - textbox [ref=e225]
-        - textbox [ref=e226]
+          - generic [ref=e204]:
+            - img [ref=e207]
+            - img "image-preview" [ref=e210]
+    - img "Crisp Chat" [ref=e212] [cursor=pointer]
+  - generic [ref=e215]:
+    - generic [ref=e216] [cursor=pointer]: 
+    - generic [ref=e219]:
+      - paragraph [ref=e220]: กรุณาตรวจสอบข้อความ
+      - generic [ref=e221]:
+        - paragraph [ref=e222]: โปรดกรอกรหัส OTP ที่ถูกส่งไปยัง 096-XXX-0708
+        - paragraph [ref=e223]: "ref: 7600"
+      - generic [ref=e226]:
         - textbox [ref=e227]
         - textbox [ref=e228]
         - textbox [ref=e229]
-      - button "ยืนยัน" [disabled] [ref=e232]:
+        - textbox [ref=e230]
+        - textbox [ref=e231]
+        - textbox [ref=e232]
+      - button "ยืนยัน" [disabled] [ref=e235]:
         - generic: ยืนยัน
-      - generic [ref=e234]: ยังไม่ได้รับ OTP? ส่งใหม่อีกครั้ง
+      - generic [ref=e237]: ยังไม่ได้รับ OTP? ส่งใหม่อีกครั้ง
 ```
 
 # Test source
 
 ```ts
-  469 |   async expectRequiredValidationMessagesForOtherCompany() {
-  470 |     await this.expectOtherCompanyNameRequiredValidation();
-  471 |     await this.expectBusinessTypeRequiredValidation();
-  472 |     await this.expectUsersRequiredValidation();
-  473 |     await this.expectEmailRequiredValidation();
-  474 |     await this.expectFirstNameRequiredValidation();
-  475 |     await this.expectLastNameRequiredValidation();
-  476 |     await this.expectPhoneRequiredValidation();
-  477 |     await this.expectTermsRequiredValidation();
-  478 |   }
-  479 | 
-  480 |   async expectTextVisible(text: string | RegExp) {
-  481 |     await expect(this.page.getByText(text).first()).toBeVisible();
+  473 |   async expectRequiredValidationMessagesForOtherCompany() {
+  474 |     await this.expectOtherCompanyNameRequiredValidation();
+  475 |     await this.expectBusinessTypeRequiredValidation();
+  476 |     await this.expectUsersRequiredValidation();
+  477 |     await this.expectEmailRequiredValidation();
+  478 |     await this.expectFirstNameRequiredValidation();
+  479 |     await this.expectLastNameRequiredValidation();
+  480 |     await this.expectPhoneRequiredValidation();
+  481 |     await this.expectTermsRequiredValidation();
   482 |   }
   483 | 
-  484 |   async expectConfirmOtpDisabled() {
-  485 |     await expect(this.otpConfirmButton).toBeDisabled();
+  484 |   async expectTextVisible(text: string | RegExp) {
+  485 |     await expect(this.page.getByText(text).first()).toBeVisible();
   486 |   }
   487 | 
-  488 |   async expectConfirmOtpEnabled() {
-  489 |     await expect(this.otpConfirmButton).toBeEnabled();
+  488 |   async expectConfirmOtpDisabled() {
+  489 |     await expect(this.otpConfirmButton).toBeDisabled();
   490 |   }
   491 | 
-  492 |   async expectOtpModalDisplayed() {
-  493 |     await expect(this.otpModal).toBeVisible();
-  494 |     await expect(this.otpInputs.first()).toBeVisible();
-  495 |     await expect(this.otpConfirmButton).toBeVisible();
-  496 |   }
-  497 | 
-  498 |   async fillOtp(otp: string) {
-  499 |     await expect(this.otpInputs.first()).toBeVisible();
-  500 |     await this.otpInputs.first().click();
-  501 |     await this.page.keyboard.type(otp, { delay: 100 });
-  502 |     await this.page.waitForTimeout(1000);
-  503 |   }
-  504 | 
-  505 | 
-  506 |   async verifyOtp(otp: string) {
-  507 |     await this.fillOtp(otp);
-  508 |     await this.clickConfirmOtp();
-  509 |   }
-  510 | 
-  511 |   async expectInvalidOtpToast() {
-  512 |     await expect(this.otpToast).toBeVisible();
-  513 |     await this.expectOtpModalDisplayed();
-  514 |   }
-  515 | 
-  516 |   async expectResendOtpCountdown() {
-  517 |     await expect(this.waitOtpText).toBeVisible();
+  492 |   async expectConfirmOtpEnabled() {
+  493 |     await expect(this.otpConfirmButton).toBeEnabled();
+  494 |   }
+  495 | 
+  496 |   async expectOtpModalDisplayed() {
+  497 |     await expect(this.otpModal).toBeVisible();
+  498 |     await expect(this.otpInputs.first()).toBeVisible();
+  499 |     await expect(this.otpConfirmButton).toBeVisible();
+  500 |   }
+  501 | 
+  502 |   async fillOtp(otp: string) {
+  503 |     await expect(this.otpInputs.first()).toBeVisible();
+  504 |     await this.otpInputs.first().click();
+  505 |     await this.page.keyboard.type(otp, { delay: 100 });
+  506 |     await this.page.waitForTimeout(1000);
+  507 |   }
+  508 | 
+  509 | 
+  510 |   async verifyOtp(otp: string) {
+  511 |     await this.fillOtp(otp);
+  512 |     await this.clickConfirmOtp();
+  513 |   }
+  514 | 
+  515 |   async expectInvalidOtpToast() {
+  516 |     await expect(this.otpToast).toBeVisible();
+  517 |     await this.expectOtpModalDisplayed();
   518 |   }
   519 | 
-  520 |   async waitUntilResendOtpLinkVisible() {
-  521 |     await expect(this.resendOtpLink).toBeVisible({ timeout: 40_000 });
+  520 |   async expectResendOtpCountdown() {
+  521 |     await expect(this.waitOtpText).toBeVisible();
   522 |   }
   523 | 
-  524 |   async clickResendOtp() {
-  525 |     await this.waitUntilResendOtpLinkVisible();
-  526 |     await this.resendOtpLink.click();
-  527 |   }
-  528 | 
-  529 |   async closeOtpModal() {
-  530 |     await this.otpCloseButton.click();
+  524 |   async waitUntilResendOtpLinkVisible() {
+  525 |     await expect(this.resendOtpLink).toBeVisible({ timeout: 40_000 });
+  526 |   }
+  527 | 
+  528 |   async clickResendOtp() {
+  529 |     await this.waitUntilResendOtpLinkVisible();
+  530 |     await this.resendOtpLink.click();
   531 |   }
   532 | 
-  533 |   async expectOtpModalClosed() {
-  534 |     await expect(this.otpModal).not.toBeVisible();
+  533 |   async closeOtpModal() {
+  534 |     await this.otpCloseButton.click();
   535 |   }
   536 | 
-  537 |   async prepareValidThaiRegistrationUntilOtp(data: {
-  538 |     companyKeyword: string;
-  539 |     companyName: string | RegExp;
-  540 |     businessType: string | RegExp;
-  541 |     users: string | RegExp;
-  542 |     email: string;
-  543 |     firstName: string;
-  544 |     lastName: string;
-  545 |     phone: string;
-  546 |   }) {
-  547 |     await this.fillThaiRegisteredCompanyForm(data);
-  548 |     await this.acceptTerms();
-  549 |     await this.submitRegistration();
-  550 |     await this.expectOtpModalDisplayed();
-  551 |   }
-  552 | 
-  553 |   async prepareValidOtherCompanyRegistrationUntilOtp(data: {
-  554 |     companyName: string;
-  555 |     businessType: string | RegExp;
-  556 |     users: string | RegExp;
-  557 |     email: string;
-  558 |     firstName: string;
-  559 |     lastName: string;
-  560 |     phone: string;
-  561 |   }) {
-  562 |     await this.fillOtherCompanyForm(data);
-  563 |     await this.acceptTerms();
-  564 |     await this.submitRegistration();
-  565 |     await this.expectOtpModalDisplayed();
-  566 |   }
-  567 | 
-  568 |   async expectRegistrationSuccess() {
-> 569 |     await this.page.waitForURL(/\/Register\/empeo\/create-password\?token=/, {
+  537 |   async expectOtpModalClosed() {
+  538 |     await expect(this.otpModal).not.toBeVisible();
+  539 |   }
+  540 | 
+  541 |   async prepareValidThaiRegistrationUntilOtp(data: {
+  542 |     companyKeyword: string;
+  543 |     companyName: string | RegExp;
+  544 |     businessType: string | RegExp;
+  545 |     users: string | RegExp;
+  546 |     email: string;
+  547 |     firstName: string;
+  548 |     lastName: string;
+  549 |     phone: string;
+  550 |   }) {
+  551 |     await this.fillThaiRegisteredCompanyForm(data);
+  552 |     await this.acceptTerms();
+  553 |     await this.submitRegistration();
+  554 |     await this.expectOtpModalDisplayed();
+  555 |   }
+  556 | 
+  557 |   async prepareValidOtherCompanyRegistrationUntilOtp(data: {
+  558 |     companyName: string;
+  559 |     businessType: string | RegExp;
+  560 |     users: string | RegExp;
+  561 |     email: string;
+  562 |     firstName: string;
+  563 |     lastName: string;
+  564 |     phone: string;
+  565 |   }) {
+  566 |     await this.fillOtherCompanyForm(data);
+  567 |     await this.acceptTerms();
+  568 |     await this.submitRegistration();
+  569 |     await this.expectOtpModalDisplayed();
+  570 |   }
+  571 | 
+  572 |   async expectRegistrationSuccess() {
+> 573 |     await this.page.waitForURL(/\/Register\/empeo\/create-password\?token=/, {
       |                     ^ TimeoutError: page.waitForURL: Timeout 120000ms exceeded.
-  570 |       timeout: 120_000,
-  571 |      waitUntil: 'domcontentloaded',
-  572 |     });
-  573 | 
-  574 |     await expect(this.createPasswordInput).toBeVisible({ timeout: 30_000 });
-  575 |   }
-  576 | }
+  574 |       timeout: 120_000,
+  575 |      waitUntil: 'domcontentloaded',
+  576 |     });
   577 | 
+  578 |     await expect(this.createPasswordInput).toBeVisible({ timeout: 30_000 });
+  579 |   }
+  580 | }
+  581 | 
 ```

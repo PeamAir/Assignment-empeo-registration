@@ -215,7 +215,11 @@ export class RegistrationPage {
   async clickConfirmOtp() {
     await expect(this.otpConfirmButton).toBeEnabled({ timeout: 40_000 });
     await this.otpConfirmButton.click();
+    // Fail fast if a visible error appears (dialog or toast) instead of silently timing out at waitForURL
     await expect(this.otpErrorDialog).not.toBeVisible({ timeout: 30_000 });
+    await expect(this.otpToast).not.toBeVisible({ timeout: 5_000 }).catch(() => {
+      throw new Error('OTP submission failed: error toast appeared. Check if company/phone is already registered.');
+    });
   }
 
   async selectThaiRegisteredCompany() {
