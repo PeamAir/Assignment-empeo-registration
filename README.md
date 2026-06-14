@@ -2,10 +2,7 @@
 
 This repository contains automation tests for the Empeo Registration System.
 
-Target Application:
-
-https://portal.uat.gofive.co.th/Register/empeo
-
+Target URL "https://portal.uat.gofive.co.th/Register/empeo"
 ---
 
 ## Tech Stack
