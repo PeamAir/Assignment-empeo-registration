@@ -9,6 +9,7 @@
 
 ## 📄 Page Load
 
+```gherkin
 @TC_001 @positive @page-load
   Scenario: TC_001 - Verify registration page loads with default Thai registered company option selected
     When the user opens the empeo registration URL
@@ -31,6 +32,7 @@
 
 ## 🔘 Company Type
 
+```gherkin
 @TC_002 @positive @company-type
   Scenario: TC_002 - Verify form changes when user selects Other company type
     Given the user is on the empeo registration page
@@ -41,6 +43,7 @@
 
 ```
 
+```gherkin
 @TC_003 @positive @company-type
   Scenario: TC_003 - Verify form changes back when user selects Thai registered company type
     Given the user is on the empeo registration page
@@ -54,6 +57,7 @@
 
 ## ✅ Validate Field — Empty Form
 
+```gherkin
 @TC_004 @negative @validation
   Scenario: TC_004 - Verify required field validation when submitting empty form for Thai registered company
     Given the user is on the registration page
@@ -74,6 +78,7 @@
 
 ```
 
+```gherkin
 @TC_005 @negative @validation
   Scenario: TC_005 - Verify required field validation when submitting empty form for Other company type
     Given the user is on the registration page
@@ -96,6 +101,7 @@
 
 ## 🔍 Company Search
 
+```gherkin
 @TC_006 @positive @company-search
   Scenario: TC_006 - Verify user can search and select company by company name
     Given the user is on the registration page
@@ -107,6 +113,7 @@
 
 ```
 
+```gherkin
 @TC_007 @positive @company-search
   Scenario: TC_007 - Verify user can search and select company by tax ID
     Given the user is on the registration page
@@ -118,6 +125,7 @@
 
 ```
 
+```gherkin
 @TC_008 @negative @company-search @validation
   Scenario: TC_008 - Verify company search field required validation for Thai registered company
     Given the user is on the registration page
@@ -132,6 +140,7 @@
 
 ```
 
+```gherkin
 @TC_009 @negative @company-search @validation
   Scenario: TC_009 - Verify validation when selected Thai registered company has already been registered
     Given the user is on the registration page
@@ -144,6 +153,8 @@
     And the user cannot proceed with registration using this company
 
 ```
+
+```gherkin
 @TC_010 @negative @company-search
   Scenario: TC_010 - Verify company search with non-existing tax ID or company name
     Given the user is on the registration page
@@ -157,6 +168,7 @@
 
 ## 🏢 Company Name (Other Type)
 
+```gherkin
 @TC_011 @positive @company-name
   Scenario: TC_011 - Verify user can enter company name for Other company type
     Given the user is on the registration page
@@ -167,6 +179,7 @@
 
 ```
 
+```gherkin
 @TC_012 @negative @company-name @validation
   Scenario: TC_012 - Verify company name required validation for Other company type
     Given the user is on the registration page
@@ -183,6 +196,7 @@
 
 ## 💼 Business Type
 
+```gherkin
 @TC_013 @positive @business-type
   Scenario: TC_013 - Verify user can select business type from dropdown
     Given the user is on the registration page
@@ -193,6 +207,7 @@
 
 ```
 
+```gherkin
 @TC_014 @negative @business-type @validation
   Scenario: TC_014 - Verify business type required field validation
     Given the user is on the registration page
@@ -208,6 +223,7 @@
 
 ## 👥 Users
 
+```gherkin
 @TC_015 @positive @users
   Scenario: TC_015 - Verify user can select number of users from dropdown
     Given the user is on the registration page
@@ -218,6 +234,7 @@
 
 ```
 
+```gherkin
 @TC_016 @negative @users @validation
   Scenario: TC_016 - Verify users required field validation
     Given the user is on the registration page
@@ -233,6 +250,7 @@
 
 ## 📧 Email
 
+```gherkin
 @TC_017 @negative @email @validation
   Scenario: TC_017 - Verify email required field validation
     Given the user is on the registration page
@@ -246,6 +264,7 @@
 
 ```
 
+```gherkin
 @TC_018 @negative @email @validation
   Scenario: TC_018 - Verify email format validation
     Given the user is on the registration page
@@ -261,6 +280,7 @@
 
 ## 🪪 First Name / Last Name
 
+```gherkin
 @TC_019 @negative @first-name @validation
   Scenario: TC_019 - Verify first name required field validation
     Given the user is on the registration page
@@ -274,6 +294,7 @@
 
 ```
 
+```gherkin
 @TC_020 @negative @last-name @validation
   Scenario: TC_020 - Verify last name required field validation
     Given the user is on the registration page
@@ -289,6 +310,7 @@
 
 ## 📱 Mobile Number
 
+```gherkin
 @TC_021 @negative @mobile @validation
   Scenario: TC_021 - Verify mobile number required field validation
     Given the user is on the registration page
@@ -302,6 +324,7 @@
 
 ```
 
+```gherkin
 @TC_022 @negative @mobile @validation
   Scenario: TC_022 - Verify invalid mobile number length validation
     Given the user is on the registration page
@@ -315,6 +338,7 @@
 
 ```
 
+```gherkin
 @TC_023 @negative @mobile @validation
   Scenario: TC_023 - Verify mobile number field does not accept alphabet or special characters
     Given the user is on the registration page
@@ -325,6 +349,7 @@
 
 ## 🌐 Country Code
 
+```gherkin
 @TC_024 @positive @country-code
   Scenario: TC_024 - Verify user can change country code
     Given the user is on the registration page
@@ -338,6 +363,7 @@
 
 ## 🎟️ Promo Code
 
+```gherkin
 @TC_025 @positive @promo-code
   Scenario: TC_025 - Verify promo code field is displayed when user clicks Use Promo Code
     Given the user is on the registration page
@@ -347,6 +373,7 @@
 
 ```
 
+```gherkin
 @TC_026 @positive @promo-code
   Scenario: TC_026 - Verify valid promo code is accepted
     Given the user is on the registration page
@@ -359,6 +386,7 @@
 
 ## 📜 Terms and Conditions
 
+```gherkin
 @TC_027 @negative @terms @validation
   Scenario: TC_027 - Verify user cannot register without accepting privacy policy and terms
     Given the user is on the registration page
@@ -370,6 +398,7 @@
 
 ```
 
+```gherkin
 @TC_028 @positive @terms
   Scenario: TC_028 - Verify privacy policy and terms links are accessible
     Given the user is on the registration page
@@ -383,6 +412,7 @@
 
 ## 🔐 OTP
 
+```gherkin
 @TC_029 @positive @otp
   Scenario: TC_029 - Verify OTP verification modal is displayed after submitting valid registration form
     Given the user is on the registration page
@@ -402,6 +432,7 @@
 
 ```
 
+```gherkin
 @TC_030 @positive @otp
   Scenario: TC_030 - Verify user can verify OTP successfully with valid 6-digit OTP
     Given the user is on the OTP verification modal
@@ -413,6 +444,7 @@
 
 ```
 
+```gherkin
 @TC_031 @negative @otp
   Scenario: TC_031 - Verify Confirm button remains disabled when OTP is empty or incomplete
     Given the user is on the OTP verification modal
@@ -425,6 +457,7 @@
 
 ```
 
+```gherkin
 @TC_032 @negative @otp
   Scenario: TC_032 - Verify invalid OTP displays error toast and keeps user on OTP modal
     Given the user is on the OTP verification modal
@@ -442,6 +475,7 @@
 
 ```
 
+```gherkin
 @TC_033 @positive @otp
   Scenario: TC_033 - Verify resend OTP link is displayed and clickable after countdown ends
     Given the user is on the OTP verification modal
@@ -454,6 +488,7 @@
 
 ```
 
+```gherkin
 @TC_034 @positive @otp
   Scenario: TC_034 - Verify user can close OTP verification modal
     Given the user is on the OTP verification modal
@@ -466,6 +501,7 @@
 
 ## 🚀 Submit — End to End
 
+```gherkin
 @TC_035 @positive @submit @e2e
   Scenario: TC_035 - Verify user can submit registration for Thai registered company with valid data
     Given the user is on the empeo registration page
@@ -489,6 +525,7 @@
 
 ```
 
+```gherkin
 @TC_036 @positive @submit @e2e
   Scenario: TC_036 - Verify user can submit registration for Other registered company with valid data
     Given the user is on the empeo registration page
