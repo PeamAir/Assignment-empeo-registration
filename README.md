@@ -109,7 +109,7 @@ npx playwright install
 Clone repository
 
 ```bash
-git clone <https://github.com/PeamAir/Assignment-empeo-registration.git>
+git clone https://github.com/PeamAir/Assignment-empeo-registration.git
 ```
 
 Navigate to project directory
